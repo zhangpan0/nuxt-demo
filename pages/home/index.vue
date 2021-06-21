@@ -8,6 +8,8 @@
         <li><nuxt-link to="/about/132">About-1</nuxt-link></li>
         <li><nuxt-link to="/about/a">About-2</nuxt-link></li>
       </ul>
+      <el-button>默认按钮</el-button>
+       
     </section>
 </template>
 

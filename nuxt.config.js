@@ -14,14 +14,18 @@ export default {
   loading: { color: '#e4048b' },   //  页面进度条
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/common.css',
-    '@/assets/css/normailze.css',
-    '@/assets/css/main.css',
+    '@/assets/css/reset.css',
+    'element-ui/lib/theme-chalk/index.css',
+    "swiper/swiper.min.css",
+    '@/assets/css/index.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/my-component.js'
+    '@/plugins/my-component.js',
+    '@/plugins/ElementUI.js',
+    '@/plugins/vue-swiper.js',
+    {src: '@/plugins/jquery-plugin', ssr: false},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -51,5 +55,18 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+    vendor: ['element-ui']
+  },
+  dev: {
+    proxy: {
+      '/api': {
+        target: 'http://192.168.103.144',
+        // target: 'http://192.168.103.31',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
+  },
 }

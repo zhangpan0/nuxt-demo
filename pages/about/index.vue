@@ -1,7 +1,6 @@
 <!-- 页面不能有注释 -->
 <template>
     <section>
-      <MyHeader/>
       about
       <div>
         <nuxt-link :to="{path:'/test/details', query:{id:10}}">go test id : path</nuxt-link>
