@@ -1,0 +1,61 @@
+.element-menu {
+  /deep/ .el-menu {
+      background-color: #f7f7f7;
+      border-right    : none;
+
+      .el-menu-item {
+          background-color: transparent;
+          color           : #666;
+
+          &.is-active {
+              background-image: -webkit-gradient(linear,
+                      left top,
+                      right top,
+                      from(#2081fc),
+                      to(#036fe2));
+              background-image: -webkit-linear-gradient(left, #2081fc, #036fe2);
+              background-image: -moz-linear-gradient(left,
+                      #2081fc 0,
+                      #036fe2 100%);
+              background-image: linear-gradient(90deg, #2081fc, #036fe2);
+              color           : #fff;
+          }
+
+          &:not(.is-active):hover {
+              background-color: transparent;
+              color           : #2081fc;
+          }
+      }
+  }
+}
+
+.elm-el-tabs {
+  /deep/ .el-tabs__nav-wrap {
+      &::after {
+          height: 1px;
+      }
+
+      .el-tabs__item {
+          height        : 50px;
+          // line-height: 50px;
+          padding       : 0 30px;
+          font-size     : 18px;
+          color         : #000;
+      }
+  }
+}
+
+.elm-el-tabs--line {
+  /deep/ .el-tabs__nav-wrap {
+      &::after {
+          height: 1px;
+      }
+  }
+}
+
+.elm-el-tab--center {
+  /deep/ .el-tabs__nav-scroll {
+      display        : flex;
+      justify-content: center;
+  }
+}

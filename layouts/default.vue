@@ -1,8 +1,6 @@
 <template>
   <div>
-    <ComHeader/>
-    <Nuxt />
-    <ComFooter/>
+    <nuxt />
   </div>
 </template>
 

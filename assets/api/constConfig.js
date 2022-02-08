@@ -1,0 +1,9 @@
+const hostPrefix = "http://192.168.103.227" // 服务器ip
+const img = "http://192.168.103.227" // 服务器ip
+// export const host = 'http://192.168.103.106' // 本地接口ip
+// export const host = hostPrefix + ':81' // 接口地址
+export const host = hostPrefix + ':82' // 测试接口地址
+// export const host = hostPrefix + ':80' // 外网服务器地址
+export const picHost = img + ":9000" // 图片地址
+export const token = ''
+export const isPublic = false; // 是否发布版本

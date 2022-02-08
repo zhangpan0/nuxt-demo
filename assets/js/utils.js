@@ -173,7 +173,7 @@ export const setStorage = function (k, v) {
     sessionStorage.setItem(k, v);
 }
 export const getStorage = function (k) {
-    return sessionStorage.getItem(k);
+    return sessionStorage.getItem(k) || '';
 }
 export const clearStorage = function (k) {
     return sessionStorage.clear(k);
@@ -210,7 +210,7 @@ export const getImgName = function (src) {
     return src.match(/[^\/\\]+$/)
 }
 
-/* 
+/*
 瀑布流布局
 @param containerSelector 父容器选择器
 @param itemSelector 列表项选择器
@@ -313,4 +313,26 @@ export const circleLayout = function (selector, rBig = 0, rSmall = 0, rotate = 0
         item.style.display = "block";
         item.style.transform = `rotate(${rotateAngle}deg)`;
     });
+}
+
+// 对象数组深拷贝
+export function deepCopy (source) {
+  let sourceCopy = source instanceof Array ? [] : {};
+  for (let item in source) {
+    sourceCopy[item] = typeof source[item] === 'object' && source[item] != null ? deepCopy(source[item]) : source[item];
+  }
+  return sourceCopy;
+}
+
+/*
+	获取cookie内的数据
+	@cookieName 需要取出数据的key
+	@stringCookie cookie字符串
+*/
+function getCookie (cookieName, stringCookie) {
+   let strCookie = ''
+   try {
+     strCookie = new RegExp('' + cookieName + '[^;]+').exec(stringCookie)[0]
+   } catch (e) { }
+   return unescape(strCookie ? strCookie.toString().replace(/^[^=]+./, '') : '')
 }
